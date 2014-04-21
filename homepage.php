@@ -10,30 +10,50 @@ Template Name: Homepage
 		<main id="main" class="site-main" role="main">
 
 		<!-- Main content -->
-		<section class="main-content">
-			<?php 
-				$posts = get_posts(array(
-					'numberposts' => -1,
-					'post_type' => 'show_post',
-				));
+		<section id="homepage-content" class="main-content">
+		
+			<article class="homepage-article">
+				<?php 
+					$posts = get_posts(array(
+						'numberposts' => -1,
+						'post_type' => 'show_post',
+					));
 
-				if($posts)
-				{
-					echo '<ul>';
-				 
-					foreach($posts as $post)
+					if($posts)
 					{
-						echo '<a href="' . get_permalink($post->ID) . '">' . get_the_post_thumbnail($post->ID) . '</a>';
-						echo '<a href="' . get_permalink($post->ID) . '">' . get_field('show_status') . '</a>';
-						echo '<li><a href="' . get_permalink($post->ID) . '">' . get_the_title($post->ID) . '</a></li>';
-						echo '<a href="' . get_permalink($post->ID) . '">' . "Performances:" . '</a>' . "&nbsp;" . get_field('performance_dates');
-						echo get_field('description_of_show');
-					}
-				 
-					echo '</ul>';
-				}
-				 
-			?>
+						foreach($posts as $post)
+						{
+							echo '<a class="show-image" href="' . get_permalink($post->ID) . '">' . get_the_post_thumbnail($post->ID) . '</a>';
+							echo '<h1><a href="' . get_permalink($post->ID) . '">' . get_field('show_status') . '</a></h1>';
+							echo '<h2><a href="' . get_permalink($post->ID) . '">' . get_the_title($post->ID) . '</a></h2>';
+							echo '<div class="performances"><a class="text-link" href="' . get_permalink($post->ID) . '">' . "Performances:" . '</a>' . "&nbsp;" . get_field('performance_dates') . '</div>' ;
+							echo '<div class="wide">' . get_field('description_of_show') . '</div>' ;
+						}
+					}		 
+				?>
+			</article> <!-- .homepage-article -->
+		
+			<article class="homepage-article">		
+				<?php 
+					$posts = get_posts(array(
+						'numberposts' => -1,
+						'post_type' => 'show_post',
+					));
+
+					if($posts)
+					{
+						foreach($posts as $post)
+						{
+							echo '<a class="show-image" href="' . get_permalink($post->ID) . '">' . get_the_post_thumbnail($post->ID) . '</a>';
+							echo '<h1><a href="' . get_permalink($post->ID) . '">' . get_field('show_status') . '</a></h1>';
+							echo '<h2><a href="' . get_permalink($post->ID) . '">' . get_the_title($post->ID) . '</a></h2>';
+							echo '<div class="performances"><a class="text-link" href="' . get_permalink($post->ID) . '">' . "Performances:" . '</a>' . "&nbsp;" . get_field('performance_dates') . '</div>' ;
+							echo '<div class="wide">' . get_field('description_of_show') . '</div>' ;
+						}
+					}					 
+				?>
+			</article> <!-- .homepage-article -->
+			
 		</section> <!-- .main-content -->	
 			
 			<!-- Sidebar (right column) -->

@@ -35,10 +35,11 @@
 		</section>
 		
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<h1 class="menu-toggle"><?php _e( 'Menu', 'taf' ); ?></h1>
-			<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'taf' ); ?></a>
-
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+			<section class="nav-inner">
+				<h1 class="menu-toggle"><?php _e( 'Menu', 'taf' ); ?></h1>
+				<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'taf' ); ?></a>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+			</section> <!-- .nav-inner -->
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
